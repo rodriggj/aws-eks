@@ -1,4 +1,4 @@
-# Amazon Web Services - Elastick Kubernetes Service
+# Amazon Web Services - Elastic Kubernetes Service (EKS)
 
 ## Scope 
 - [ ] Setup AWS EKS Cluster
