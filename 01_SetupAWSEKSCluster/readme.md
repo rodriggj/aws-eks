@@ -15,7 +15,7 @@
 
 ## Procedure
 
-### EkS Procedures
+### EKS Procedures
 
 1. Create the EKS cluster and nodes. To do this run the following command replacing the _my cluster_, and _region code_ with the appropriate params. 
 
