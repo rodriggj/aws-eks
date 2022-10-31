@@ -6,6 +6,10 @@
 <img width="350" alt="image" src="https://user-images.githubusercontent.com/8760590/198692204-640713b3-e4ba-4725-bfdf-811d56615a8e.png">
 </p>
 
+## Options 
+- [ ] Init an EKS stack with `eksctl` 
+- [ ] Init an EKS stack with `aws cli`
+
 ## AWS Dependencies 
 - [ ] Require `kubectl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 - [ ] Require `eksctl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
