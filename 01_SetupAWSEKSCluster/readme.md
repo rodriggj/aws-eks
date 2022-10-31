@@ -211,8 +211,8 @@ kubectl patch deployment coredns \
 + Click _Resources_ tab. You see all of the Kubernetes resources that are deployed by default to an Amazon EKS cluster. Select any resource type in the console to learn more about it.
 
 13. Delete the Resources. 
-+ Nav to the _Clusters_, then _Compute_ tab and delete any nodes or node-groups
 + Delete the _Fargate Profile_
++ Nav to the _Clusters_, then _Compute_ tab and delete any nodes or node-groups
 + Delete the Cluster
 + Delete the VPC AWS CloudFormation Stack
 + Delete the IAM roles that were created. 
