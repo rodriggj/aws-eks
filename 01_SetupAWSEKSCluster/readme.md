@@ -9,7 +9,7 @@
 ## Options 
 - [ ] Init an EKS stack with `eksctl` [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#eks-procedures)
 - [ ] Init an EKS stack with `aws cli` [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#aws-cli-procedure)
-- [ ] Init an EKS stack with a `config` file [here](https://eksctl.io)
+- [ ] Init an EKS stack with a `config` file [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#config-file-procedure)
 
 ## AWS Dependencies 
 - [ ] Require `kubectl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
@@ -252,6 +252,8 @@ nodeGroups:
         publicKeyName: tf-key-oregon.pem
 ```
 
+> NOTE: The `publicKeyName` needs to be the name of the key-pair value associated with your profile configured on the `./aws/config` file. You can vide this key-pair name on the AWS EC2 console, select _key-pair_ on the left-hand nav pane and input the name of the key-pair that you require. 
+
 4. Run the following command 
 
 ```s
@@ -267,5 +269,7 @@ Should result in a terminal display that looks similar to this. You can see the 
 </p>
 
 Evidence of deployment can be found on the AWS console in several areas to include CloudFormation logs, EKS, EC2, etc. 
+
+<small><small>[Back to Top](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#options)</small></small>
 
 ---------
