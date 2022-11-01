@@ -229,7 +229,7 @@ kubectl patch deployment coredns \
 
 ## Config File Procedure
 
-1. Go to the Weave Community Home page [here](https://eksctl.io/)
+1. Open and use the Weave Community Home page [here](https://eksctl.io/) as a reference for the configuration you intend to implement. This procedure will utilize a "vanilla" EKS stack deployment, but any additional config can be found here for syntax and examples.
 2. Create a file in your route working directory called `torque-cluster.yaml`
 3. In the `cluster.yaml` file input the following configuration: 
 
