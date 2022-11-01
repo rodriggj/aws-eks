@@ -11,6 +11,8 @@
 - [ ] Init an EKS stack with `aws cli` [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#aws-cli-procedure)
 - [ ] Init an EKS stack with a `config` file [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#config-file-procedure)
 
+> **Recommendation**: If you do not have a preference or are being instructed to use a particular method, then utilize the `eksctl` method. This is the fastest, and most predictable deployment method. You will have to have installed `eksctl` to use this method.
+
 ## AWS Dependencies 
 - [ ] Require `kubectl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
 - [ ] Require `eksctl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html)
