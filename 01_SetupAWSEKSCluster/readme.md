@@ -9,6 +9,7 @@
 ## Options 
 - [ ] Init an EKS stack with `eksctl` [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#eks-procedures)
 - [ ] Init an EKS stack with `aws cli` [here](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#aws-cli-procedure)
+- [ ] Init an EKS stack with a `config` file [here](https://eksctl.io)
 
 ## AWS Dependencies 
 - [ ] Require `kubectl` installation [documentation](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html)
@@ -163,7 +164,7 @@ aws iam create-role \
 ```s
 aws iam attach-role-policy \
   --policy-arn arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy \
-    --role-name AmazonEKSFargatePodExecutionRole
+  --role-name AmazonEKSFargatePodExecutionRole
 ```
 
 > NOTE: `region-code` is replaced with `*` so I can make this policy available in all regions. The # sequence is my account number. And the `/my-cluster/` is replaced with the EKS cluster name that we created previously. 
@@ -212,7 +213,6 @@ kubectl patch deployment coredns \
 
 13. Delete the Resources. 
 + Delete the _Fargate Profile_
-+ Nav to the _Clusters_, then _Compute_ tab and delete any nodes or node-groups
 + Delete the Cluster
 + Delete the VPC AWS CloudFormation Stack
 + Delete the IAM roles that were created. 
@@ -222,3 +222,50 @@ kubectl patch deployment coredns \
 > Documentation: _AWS EKS - Getting Started with Amazon EKS_ [documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html)
 
 <small><small>[Back to Top](https://github.com/rodriggj/aws-eks/blob/master/01_SetupAWSEKSCluster/readme.md#options)</small></small>
+
+----------
+
+## Config File Procedure
+
+1. Go to the Weave Community Home page [here](https://eksctl.io/)
+2. Create a file in your route working directory called `torque-cluster.yaml`
+3. In the `cluster.yaml` file input the following configuration: 
+
+```s 
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: Torque-basic-cluster
+  region: us-west-2
+
+nodeGroups:
+  - name: ng-1
+    instanceType: t2.micro
+    desiredCapacity: 1
+    ssh:
+        publicKeyName: tf-key-oregon.pem
+  - name: ng-2
+    instanceType: t2.small
+    desiredCapacity: 2
+    ssh:
+        publicKeyName: tf-key-oregon.pem
+```
+
+4. Run the following command 
+
+```s
+time eskctl create cluster -f torque-cluster.yaml
+```
+
+> NOTE: You don't need to include the `time` command. I did this to see the init time for this cluster. You can ommit and simply keep/run the remainder of the command. 
+
+Should result in a terminal display that looks similar to this. You can see the benefit of the `time` prefix in our command. The CloudFormation stack will execute for ~12 mins to complete this cluster provisioning. 
+
+<p align="center">
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/8760590/199356450-0a3b3b5b-3168-48da-a749-269f4766a2ca.png">
+</p>
+
+Evidence of deployment can be found on the AWS console in several areas to include CloudFormation logs, EKS, EC2, etc. 
+
+---------
