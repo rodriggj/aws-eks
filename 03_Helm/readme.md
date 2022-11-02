@@ -12,9 +12,9 @@ Helm is a tool for managing Kubernetes packages called charts. Helm can do the f
 ## Architecture
 For Helm, there are three important concepts:
 
-The `chart` is a bundle of information necessary to create an instance of a Kubernetes application.
-The `config` contains configuration information that can be merged into a packaged chart to create a releasable object.
-A `release` is a running instance of a chart, combined with a specific config.
++ The `chart` is a bundle of information necessary to create an instance of a Kubernetes application.
++ The `config` contains configuration information that can be merged into a packaged chart to create a releasable object.
++ A `release` is a running instance of a chart, combined with a specific config.
 
 ## Prerequisites
 The following prerequisites are required for a successful and properly secured use of Helm.
